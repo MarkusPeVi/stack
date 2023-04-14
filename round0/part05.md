@@ -3,22 +3,18 @@ sequenceDiagram
     participant browser
     participant server
     
-    browser->>server: POST  https://studies.cs.helsinki.fi/exampleapp/new_note
-    activate server
-    server-->>browser: status 302
-    deactivate server
-    
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+browser->>server: GET  https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
     server-->>browser: HTML document
     deactivate server
+    
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server-->>browser: the css file
     deactivate server   
  
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
     activate server
     server-->>browser: the JavaScript file
     deactivate server
@@ -27,9 +23,10 @@ sequenceDiagram
     
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: [{"content":"allo2","date":"2023-04-14T04:29:13.872Z"}, ... ]
+    server-->>browser: [{content: "this is awsome", date: "2023-04-14T03:27:43.642Z"},…] 
     deactivate server    
 
     Note right of browser: The browser executes the callback function that renders the notes 
 
 ```
+
